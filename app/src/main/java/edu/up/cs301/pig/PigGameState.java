@@ -4,9 +4,18 @@ import edu.up.cs301.game.infoMsg.GameState;
 
 public class PigGameState extends GameState {
 
-    private int playerid = 0;
-    private int player0 = 0;
-    private int player1 = 0;
-    private int currentTotal = 0;
-    private int currentVal = 0;
+    private int playerid;
+    private int player0Score;
+    private int player1Score;
+    private int currentTotal;
+    private int currentVal;
+
+    // Game State Constructor
+    public PigGameState() {
+        playerid = 0;
+        player0Score = 0;
+        player1Score = 0;
+        currentTotal = 0;
+        currentVal = 0;
+    }
 }
