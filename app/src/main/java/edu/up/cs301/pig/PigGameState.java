@@ -4,18 +4,35 @@ import edu.up.cs301.game.infoMsg.GameState;
 
 public class PigGameState extends GameState {
 
-    private int playerid;
+    private int playerID;
     private int player0Score;
     private int player1Score;
     private int currentTotal;
     private int currentVal;
 
-    public void setPlayerid(int playerid) {
-        this.playerid = playerid;
+    // Game State Constructor
+    public PigGameState() {
+        playerID = 0;
+        player0Score = 0;
+        player1Score = 0;
+        currentTotal = 0;
+        currentVal = 1;
     }
 
-    public int getPlayerid() {
-        return playerid;
+    public PigGameState(PigGameState copy) {
+        playerID = copy.playerID;
+        player0Score = copy.player0Score;
+        player1Score = copy.player1Score;
+        currentTotal = copy.currentTotal;
+        currentVal = copy.currentVal;
+    }
+
+    public void setPlayerID(int playerID) {
+        this.playerID = playerID;
+    }
+
+    public int getPlayerID() {
+        return playerID;
     }
 
     public void setPlayer0Score(int player0Score) {
@@ -47,31 +64,5 @@ public class PigGameState extends GameState {
 
     public int getCurrentVal() {
         return currentVal;
-    }
-
-
-
-
-    private int playerid;
-    private int player0Score;
-    private int player1Score;
-    private int currentTotal;
-    private int currentVal;
-
-    // Game State Constructor
-    public PigGameState() {
-        playerid = 0;
-        player0Score = 0;
-        player1Score = 0;
-        currentTotal = 0;
-        currentVal = 0;
-    }
-
-    public PigGameState(PigGameState copy) {
-        playerid = copy.playerid;
-        player0Score = copy.player0Score;
-        player1Score = copy.player1Score;
-        currentTotal = copy.currentTotal;
-        currentVal = copy.currentVal;
     }
 }
