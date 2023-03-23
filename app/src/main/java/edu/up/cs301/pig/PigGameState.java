@@ -52,4 +52,26 @@ public class PigGameState extends GameState {
 
 
 
+    private int playerid;
+    private int player0Score;
+    private int player1Score;
+    private int currentTotal;
+    private int currentVal;
+
+    // Game State Constructor
+    public PigGameState() {
+        playerid = 0;
+        player0Score = 0;
+        player1Score = 0;
+        currentTotal = 0;
+        currentVal = 0;
+    }
+
+    public PigGameState(PigGameState copy) {
+        playerid = copy.playerid;
+        player0Score = copy.player0Score;
+        player1Score = copy.player1Score;
+        currentTotal = copy.currentTotal;
+        currentVal = copy.currentVal;
+    }
 }
