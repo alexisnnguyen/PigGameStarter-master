@@ -18,4 +18,12 @@ public class PigGameState extends GameState {
         currentTotal = 0;
         currentVal = 0;
     }
+
+    public PigGameState(PigGameState copy) {
+        playerid = copy.playerid;
+        player0Score = copy.player0Score;
+        player1Score = copy.player1Score;
+        currentTotal = copy.currentTotal;
+        currentVal = copy.currentVal;
+    }
 }
