@@ -20,11 +20,11 @@ public class PigGameState extends GameState {
     }
 
     public PigGameState(PigGameState copy) {
-        playerID = copy.playerID;
-        player0Score = copy.player0Score;
-        player1Score = copy.player1Score;
-        currentTotal = copy.currentTotal;
-        currentVal = copy.currentVal;
+        playerID = copy.getPlayerID();
+        player0Score = copy.getPlayer0Score();
+        player1Score = copy.getPlayer1Score();
+        currentTotal = copy.getCurrentTotal();
+        currentVal = copy.getCurrentVal();
     }
 
     public void setPlayerID(int playerID) {

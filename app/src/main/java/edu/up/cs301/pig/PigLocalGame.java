@@ -60,6 +60,7 @@ public class PigLocalGame extends LocalGame {
             }
             //Changes current val to 0
             game.setCurrentVal(0);
+
             //Changes player ID
             if (game.getPlayerID() == 0) {
                 game.setPlayerID(1);

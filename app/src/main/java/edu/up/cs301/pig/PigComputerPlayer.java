@@ -29,6 +29,25 @@ public class PigComputerPlayer extends GameComputerPlayer {
     @Override
     protected void receiveInfo(GameInfo info) {
         // TODO  You will implement this method
+        try {
+            Thread.sleep(1000);
+
+            PigGameState pig = new PigGameState((PigGameState)info);
+            if (pig.getPlayerID() != playerNum) {
+                return;
+            } else {
+
+                int chance = (int)(Math.random() * 2);
+
+                if (chance == 0) {
+                    game.sendAction(new PigHoldAction(this));
+                } else {
+                    game.sendAction(new PigHoldAction(this));
+                }
+
+            }
+        } catch (InterruptedException e){}
+
     }//receiveInfo
 
 }
