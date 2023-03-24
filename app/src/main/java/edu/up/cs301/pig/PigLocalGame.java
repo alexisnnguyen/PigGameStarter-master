@@ -75,7 +75,9 @@ public class PigLocalGame extends LocalGame {
             // if dice is 1, set current running total to 0 and switch turns;
             else {
                 game.setCurrentTotal(0);
-                game.setPlayerID(1 - game.getPlayerID());
+                if (players.length > 1) {
+                    game.setPlayerID(1 - game.getPlayerID());
+                }
                 return true;
             }
         }
@@ -88,6 +90,8 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected void sendUpdatedStateTo(GamePlayer p) {
         //TODO  You will implement this method
+        PigGameState copy = new PigGameState(game);
+        p.sendInfo(copy);
     }//sendUpdatedSate
 
     /**
