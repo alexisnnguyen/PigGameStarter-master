@@ -30,7 +30,7 @@ public class PigComputerPlayer extends GameComputerPlayer {
     protected void receiveInfo(GameInfo info) {
         // TODO  You will implement this method
         try {
-            Thread.sleep(1000);
+            Thread.sleep(800);
 
             PigGameState pig = new PigGameState((PigGameState)info);
             if (pig.getPlayerID() != playerNum) {
@@ -42,7 +42,7 @@ public class PigComputerPlayer extends GameComputerPlayer {
                 if (chance == 0) {
                     game.sendAction(new PigHoldAction(this));
                 } else {
-                    game.sendAction(new PigHoldAction(this));
+                    game.sendAction(new PigRollAction(this));
                 }
 
             }
