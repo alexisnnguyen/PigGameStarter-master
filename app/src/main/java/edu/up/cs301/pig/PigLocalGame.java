@@ -33,7 +33,9 @@ public class PigLocalGame extends LocalGame {
      */
     @Override
     protected boolean canMove(int playerIdx) {
+
         //TODO  You will implement this method
+
         if (game.getPlayerID() == playerIdx) {
             return true;
         }
@@ -90,6 +92,45 @@ public class PigLocalGame extends LocalGame {
 
         }
 
+
+        // if action is hold
+        if (action instanceof PigHoldAction) {
+
+            // if player is 0, set score to current score + running score
+            if (game.getPlayerID() == 0) {
+                game.setPlayer0Score(game.getPlayer0Score() + game.getCurrentTotal());
+                return true;
+            }
+
+            // if player is 1, set score to current score + running score
+            else {
+                game.setPlayer1Score(game.getPlayer1Score() + game.getCurrentTotal());
+                return true;
+            }
+        }
+        // if action is roll
+        if (action instanceof PigRollAction) {
+
+            // roll the dice and set variable to value
+            int dice = (int)(Math.random() * 6) + 1;
+            game.setCurrentVal(dice);
+
+            // if dice is not 1, add rolled value to current running total
+            if (game.getCurrentVal() != 1) {
+                game.setCurrentTotal(dice + game.getCurrentTotal());
+                return true;
+            }
+
+            // if dice is 1, set current running total to 0 and switch turns;
+            else {
+                game.setCurrentTotal(0);
+                if (players.length > 1) {
+                    game.setPlayerID(1 - game.getPlayerID());
+                }
+                return true;
+            }
+        }
+
         return false;
     }//makeMove
 
@@ -112,6 +153,7 @@ public class PigLocalGame extends LocalGame {
      */
     @Override
     protected String checkIfGameOver() {
+
         //TODO  You will implement this method
         String toRtn;
         if (game.getPlayer0Score() >= 50) {
@@ -121,6 +163,22 @@ public class PigLocalGame extends LocalGame {
         if (game.getPlayer1Score() >= 50) {
             toRtn = "Player 2 won with a score of " + game.getPlayer1Score() + "!";
             return toRtn;
+        }
+
+
+
+        // check if any of the scores exceed 50
+        if (game.getPlayer1Score() >= 50 || game.getPlayer0Score() >= 50) {
+
+            // if player 1 has a higher score, they win
+            if (game.getPlayer1Score() > game.getPlayer0Score()) {
+                return "Player 1 has won with a score of " + game.getPlayer1Score();
+            }
+
+            // if player 0 has a higher score, they win
+            else {
+                return "Player 0 has won with a score of " + game.getPlayer0Score();
+            }
         }
 
         return null;
