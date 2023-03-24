@@ -9,5 +9,4 @@ public class PigRollAction extends GameAction {
         super(player);
     }
 
-
 }
